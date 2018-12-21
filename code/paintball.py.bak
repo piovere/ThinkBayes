@@ -88,7 +88,7 @@ class Paintball(thinkbayes.Suite, thinkbayes.Joint):
 
 def MakePmfPlot(alpha = 10):
     """Plots Pmf of location for a range of betas."""
-    locations = list(range(0, 31))
+    locations = range(0, 31)
 
     betas = [10, 20, 40]
     thinkplot.PrePlot(num=len(betas))
@@ -114,8 +114,8 @@ def MakePosteriorPlot(suite):
     marginal_beta = suite.Marginal(1)
     marginal_beta.name = 'beta'
 
-    print('alpha CI', marginal_alpha.CredibleInterval(50))
-    print('beta CI', marginal_beta.CredibleInterval(50))
+    print 'alpha CI', marginal_alpha.CredibleInterval(50)
+    print 'beta CI', marginal_beta.CredibleInterval(50)
 
     thinkplot.PrePlot(num=2)
 
@@ -191,9 +191,9 @@ def MakeCrediblePlot(suite):
 
 def main(script):
 
-    alphas = list(range(0, 31))
-    betas = list(range(1, 51))
-    locations = list(range(0, 31))
+    alphas = range(0, 31)
+    betas = range(1, 51)
+    locations = range(0, 31)
 
     suite = Paintball(alphas, betas, locations)
     suite.UpdateSet([15, 16, 18, 21])

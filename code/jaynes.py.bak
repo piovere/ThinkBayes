@@ -168,7 +168,7 @@ def main():
         suite = Detector(r, f, step=1)
         suite.Update(k)
         thinkplot.Pmf(suite)
-        print(suite.MaximumLikelihood())
+        print suite.MaximumLikelihood()
 
     thinkplot.Save(root='jaynes1',
                    xlabel='Number of particles (n)',
@@ -176,7 +176,7 @@ def main():
                    formats=FORMATS)
 
     # plot the posterior distributions of r and n
-    hypos = list(range(1, 501, 5))
+    hypos = range(1, 501, 5)
     suite = Emitter2(hypos, f=f)
     suite.Update(k)
 
